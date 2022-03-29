@@ -30,7 +30,7 @@
           </div>
 
           <div class="form-group">
-            <label for="nome">Nome</label>
+            <label for="nome">Login</label>
             <input [(ngModel)] ="user.user"
               class="form-control"
               type="text"
@@ -65,13 +65,13 @@
           <div class="form-group">
             <label for="tipo">Tipo de usuário</label>
             <select class="form-control" name="tipo" id="tipo" (change)="typeUser($event)"></select>
-            <option>Selecione um tipo de usuário:</option>
+            <option>Selecione um tipo de usuário: </option>
             <option value="normal">Normal</option>
             <option value="adm">Administrador</option>
           </div>
 
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-succsess" (click)="register()">Cadastrar</button>
+            <button type="submit" class="btn btn-succsess mr-4" (click)="register()"> Cadastrar </button>
             <button type="submit" class="btn btn-danger mr-4" routerLink="/entrar">Cancelar</button>
           </div>
         </div>
