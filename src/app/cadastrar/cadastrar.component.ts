@@ -11,7 +11,7 @@ import { AuthService } from '../service/auth.service';
 export class CadastrarComponent implements OnInit {
 
 
-  user: User = new User
+  user: User = new User();
   confirmAnPassword: string
   typeOfUser: string
 
@@ -38,6 +38,7 @@ export class CadastrarComponent implements OnInit {
       if(this.user.password != this.confirmAnPassword){
         alert ('As senhas estão incorretas.')
       }else{
+        console.log(this.user)
         this.authService.register(this.user).subscribe((resp: User) => {
           this.user = resp
           this.router.navigate(['/enter'])
