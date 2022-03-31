@@ -10,15 +10,15 @@ import { environment } from 'src/environments/environment.prod';
 export class InicioComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private route: Router
   ) { }
 
   ngOnInit(){
 
-    if(environment.token == ''){
-      alert('Secão expirada. Refaça o login.')
-      this.router.navigate(['/entrar'])
-    }
+    // if(environment.token == ''){
+    //   alert('Seção expirada. Refaça o login.')
+    //   this.route.navigate(['/enter'])
+    // }
   }
 
 }
