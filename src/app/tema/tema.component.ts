@@ -36,6 +36,7 @@ export class TemaComponent implements OnInit {
     this.themeService.postTheme(this.theme).subscribe((resp: Theme)=>{
       this.theme = resp
       alert ('Tema cadastrado com sucesso!')
+      this.findAllTheme()
       this.theme = new Theme()
     })
   }
