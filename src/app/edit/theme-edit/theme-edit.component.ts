@@ -1,3 +1,4 @@
+import { convertUpdateArguments } from '@angular/compiler/src/compiler_util/expression_converter';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Theme } from 'src/app/model/Theme';
@@ -32,3 +33,11 @@ export class ThemeEditComponent implements OnInit {
     });
   }
 }
+atualizar(){
+  this.themeService.putTheme(this.theme).subscribe((resp: Theme)=>{
+    this.theme = resp
+    alert('Tema atualizado com sucesso')
+    this.router.navigate(['/theme'])
+  })
+}
+
