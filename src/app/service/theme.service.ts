@@ -16,10 +16,18 @@ export class ThemeService {
   }
 
   getAllTheme(): Observable<Theme[]>{
-    return this.http.get<Theme[]>('https://blognalu.herokuapp.com/theme', this.token)
+    return this.http.get<Theme[]>('https://blognalu.herokuapp.com/tema', this.token)
   }
 
   postTheme(theme: Theme): Observable<Theme>{
-    return this.http.post<Theme>('https://blognalu.herokuapp.com/theme',theme, this.token)
+    return this.http.post<Theme>('https://blognalu.herokuapp.com/tema',theme, this.token)
+  }
+
+  putTheme(theme: Theme): Observable<Theme>{
+    return this.http.put<Theme>('https://blognalu.herokuapp.com/tema', theme, this.token)
+  }
+
+  deleteTheme(id: number){
+    return this.http.delete('https://blognalu.herokuapp.com/tema/${id}', this.token)
   }
 }
