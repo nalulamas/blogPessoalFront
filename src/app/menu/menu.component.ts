@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
   }
 
   exit(){
-    this.router.navigate(['/entrar'])
+    this.router.navigate(['/enter'])
     environment.token = ''
     environment.name = ''
     environment.picture = ''

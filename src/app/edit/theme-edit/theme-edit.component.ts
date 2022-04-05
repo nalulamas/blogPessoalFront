@@ -28,16 +28,17 @@ export class ThemeEditComponent implements OnInit {
   }
 
   findByIdTheme(id: number) {
-    this.themeService.getAllTheme(id).subscribe((resp: Theme) => {
+    this.themeService.getByIdTheme(id).subscribe((resp: Theme) => {
       this.theme = resp;
     });
   }
-}
-atualizar(){
+
+update(){
   this.themeService.putTheme(this.theme).subscribe((resp: Theme)=>{
     this.theme = resp
     alert('Tema atualizado com sucesso')
     this.router.navigate(['/theme'])
   })
+}
 }
 
