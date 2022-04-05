@@ -138,18 +138,21 @@
 
         <div class="form-group">
           <label for="title">Título</label>
-          <input type="text" class="form-control" id="title" placeholder="Digite o titulo">
+          <input [(ngModel)]="post.title" type="text" class="form-control" id="title" placeholder="Digite o titulo">
         </div>
 
         <div class="form-group">
           <label for="text">Texto</label>
-          <textarea name="text" class="form-control" id="text" rows="3"></textarea>
+          <textarea  [(ngModel)]="post.text" name="text" class="form-control" id="text" rows="3"></textarea>
         </div>
 
         <div class="form-group">
           <label for="text">Escolha um tema ou <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a>:</label>
-          <select name="theme" class="form-control" id="theme">
-            <option value="">Temas</option>
+          <select name="theme" class="form-control" [(ngModel)]="idTheme" (change)
+          ="findByIdTheme()">
+            <option *ngFor="let item of themeList" value="{{item.id}}">
+              {{item.description}}
+            </option>
           </select>
         </div>
 
@@ -158,7 +161,7 @@
         <button type="button" class="btn btn-danger" data-dismiss="modal">
           Cancelar
         </button>
-        <button type="button" class="btn btn-success">Publicar</button>
+        <button type="button" class="btn btn-success" (click)="publicar()">Publicar</button>
       </div>
     </div>
   </div>
