@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Post } from '../model/Post';
 import { Theme } from '../model/Theme';
 import { User } from '../model/User';
+import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { ThemeService } from '../service/theme.service';
 
@@ -15,6 +16,8 @@ import { ThemeService } from '../service/theme.service';
 export class InicioComponent implements OnInit {
 
   post: Post = new Post()
+  postList: Post[]
+
   theme: Theme = new Theme()
   themeList: Theme[]
   idTheme: number
@@ -26,6 +29,7 @@ export class InicioComponent implements OnInit {
     private route: Router,
     private postagemService: PostagemService,
     private themeService: ThemeService,
+    private authService: AuthService,
     ) {}
 
   ngOnInit() {
@@ -34,6 +38,7 @@ export class InicioComponent implements OnInit {
       this.route.navigate(['/enter']);
     }
     this.getAllThemes()
+    this.getAllPosts()
   }
     getAllThemes(){
       this.themeService.getAllTheme().subscribe((resp: Theme[])=>{
@@ -44,6 +49,17 @@ export class InicioComponent implements OnInit {
     findByIdTheme(){
       this.themeService.getByIdTheme(this.idTheme).subscribe((resp: Theme)=>{
         this.theme = resp
+      })
+    }
+    getAllPosts(){
+      this.postagemService.getAllPosts().subscribe((resp: Post[])=>{
+        this.postList = resp
+      })
+    }
+
+    findByIdUser(){
+      this.authService.getByIdUser(this.idUser).subscribe((resp: User)=>{
+        this.user = resp
       })
     }
 
@@ -58,6 +74,7 @@ export class InicioComponent implements OnInit {
         this.post = resp
         alert('Postagem realizada com sucesso!')
         this.post = new Post()
+        this.getAllPosts()
       })
 
     }

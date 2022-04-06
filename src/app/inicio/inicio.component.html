@@ -57,6 +57,7 @@
         Todas as postagens
       </button>
       <button
+        (click)="findByIdUser()"
         class="nav-link text-secondary font-weight-bold"
         id="nav-myPosts-tab"
         data-toggle="tab"
@@ -78,21 +79,60 @@
         aria-controls="nav-themePosts"
         aria-selected="false"
       >
-        Postagens por tema
+        <div class="card-columns" *ngFor="let theme of themeList">
+          <div class="card text-center" *ngFor="let item of theme.post">
+            <div class="card-body">
+              <h5 class="card-title m-0">{{ item.title }}</h5>
+              <p class="card-text mt-3">{{ item.text }}</p>
+              <p class="card-text">
+                <small class="text-muted">
+                  {{ item.date | date: "dd/MM/yyyy" }} às
+                  {{ item.date | date: "HH:mm" }}
+                </small>
+              </p>
+
+              <p class="card-text">
+                <small class="text-muted"> by: {{ item.creator.name }} </small>
+              </p>
+            </div>
+          </div>
+        </div>
       </button>
     </div>
   </nav>
 
   <!--Divs-->
 
-  <div class="tab-content" id="nav-tabContent">
+  <div class="tab-content mt-5" id="nav-tabContent">
     <div
       class="tab-pane fade show active"
       id="allPosts"
       role="tabpanel"
       aria-labelledby="allPosts-tab"
     >
-      Todas as postagens
+      <!--Card-->
+
+      <div class="card-columns">
+        <div class="card text-center" *ngFor="let item of postList">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.title }}</h5>
+            <small class="text-muted"
+              >Theme: {{ item.theme.description }}</small
+            >
+            <p class="card-text mt-3">{{ item.text }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                {{ item.date | date: "dd/MM/yyyy" }} às
+                {{ item.date | date: "HH:mm" }}
+              </small>
+            </p>
+
+            <p class="card-text">
+              <small class="text-muted"> by: {{ item.creator.name }} </small>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="tab-pane fade"
@@ -100,7 +140,23 @@
       role="tabpanel"
       aria-labelledby="nav-profile-tab"
     >
-      Minhas postagens
+      <div class="card-columns">
+        <div class="card text-center" *ngFor="let item of user.post">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.title }}</h5>
+            <small class="text-muted"
+              >Theme: {{ item.theme.description }}</small
+            >
+            <p class="card-text mt-3">{{ item.text }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                {{ item.date | date: "dd/MM/yyyy" }} às
+                {{ item.date | date: "HH:mm" }}
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="tab-pane fade"
@@ -131,37 +187,57 @@
           data-dismiss="modal"
           aria-label="Close"
         >
-        <span aria-hidden="true">&times;</span>
-      </button>
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-
         <div class="form-group">
           <label for="title">Título</label>
-          <input [(ngModel)]="post.title" type="text" class="form-control" id="title" placeholder="Digite o titulo">
+          <input
+            [(ngModel)]="post.title"
+            type="text"
+            class="form-control"
+            id="title"
+            placeholder="Digite o titulo"
+          />
         </div>
 
         <div class="form-group">
           <label for="text">Texto</label>
-          <textarea  [(ngModel)]="post.text" name="text" class="form-control" id="text" rows="3"></textarea>
+          <textarea
+            [(ngModel)]="post.text"
+            name="text"
+            class="form-control"
+            id="text"
+            rows="3"
+          ></textarea>
         </div>
 
         <div class="form-group">
-          <label for="text">Escolha um tema ou <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a>:</label>
-          <select name="theme" class="form-control" [(ngModel)]="idTheme" (change)
-          ="findByIdTheme()">
-            <option *ngFor="let item of themeList" value="{{item.id}}">
-              {{item.description}}
+          <label for="text"
+            >Escolha um tema ou
+            <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a
+            >:</label
+          >
+          <select
+            name="theme"
+            class="form-control"
+            [(ngModel)]="idTheme"
+            (change)="findByIdTheme()"
+          >
+            <option *ngFor="let item of themeList" value="{{ item.id }}">
+              {{ item.description }}
             </option>
           </select>
         </div>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">
           Cancelar
         </button>
-        <button type="button" class="btn btn-success" (click)="publicar()">Publicar</button>
+        <button type="button" class="btn btn-success" (click)="publicar()">
+          Publicar
+        </button>
       </div>
     </div>
   </div>
