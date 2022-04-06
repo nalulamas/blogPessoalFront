@@ -27,12 +27,15 @@ export class PostEditComponent implements OnInit {
   ) { }
 
   ngOnInit(){
+
+    window.scroll(0,0)
+
     if(environment.token == ''){
       this.router.navigate(['/enter'])
     }
     let id = this.route.snapshot.params['id']
     this.findByIdPost(id)
-    this.findAllTheme
+    this.findAllTheme()
   }
   findByIdPost(id: number){
     this.postService.getByIdPost(id).subscribe((resp: Post)=>{
