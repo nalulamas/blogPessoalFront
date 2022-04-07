@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/model/Post';
 import { Theme } from 'src/app/model/Theme';
-import { PostagemService } from 'src/app/service/postagem.service';
+import { PostService } from 'src/app/service/postagem.service';
 import { ThemeService } from 'src/app/service/theme.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -18,7 +18,7 @@ export class PostDeleteComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private postagemService: PostagemService,
+    private postService: PostService,
   ) {}
 
   ngOnInit() {
@@ -31,13 +31,13 @@ export class PostDeleteComponent implements OnInit {
     this.findByIdPost(this.idPost)
   }
   findByIdPost(id: number) {
-    this.postagemService.getByIdPost(id).subscribe((resp: Post) => {
+    this.postService.getByIdPost(id).subscribe((resp: Post) => {
       this.post = resp;
     });
   }
 
   delete() {
-    this.postagemService.deletePost(this.idPost).subscribe(()=>{
+    this.postService.deletePost(this.idPost).subscribe(()=>{
       alert('Postagem apagada com sucesso!')
       this.router.navigate(['/inicio'])
     })

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/model/Post';
 import { Theme } from 'src/app/model/Theme';
-import { PostagemService } from 'src/app/service/postagem.service';
+import { PostService } from 'src/app/service/postagem.service';
 import { ThemeService } from 'src/app/service/theme.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -22,7 +22,7 @@ export class PostEditComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private postService: PostagemService,
+    private postService: PostService,
     private themeService: ThemeService,
   ) { }
 
@@ -59,7 +59,7 @@ export class PostEditComponent implements OnInit {
     this.theme.id = this.idTheme
     this.post.theme = this.theme
 
-    this.postService.putPostagem(this.post).subscribe((resp: Post)=>{
+    this.postService.putPost(this.post).subscribe((resp: Post)=>{
       this.post = resp
       alert ('Postagem atualizada com sucesso!')
       this.router.navigate(['/inicio'])

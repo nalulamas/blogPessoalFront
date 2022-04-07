@@ -7,7 +7,7 @@ import { Post } from '../model/Post';
 @Injectable({
   providedIn: 'root'
 })
-export class PostagemService {
+export class PostService {
 
   constructor(private http: HttpClient){}
 
@@ -22,10 +22,10 @@ export class PostagemService {
   return this.http.get<Post>(`https://blognalu.herokuapp.com/postagens/${id}`, this.token)
   }
 
-  postPostagem(post: Post): Observable<Post>{
+  postPost(post: Post): Observable<Post>{
     return this.http.post<Post>('https://blognalu.herokuapp.com/postagens', post, this.token)
   }
-  putPostagem(post: Post): Observable<Post>{
+  putPost(post: Post): Observable<Post>{
 return this.http.put<Post>('https://blognalu.herokuapp.com/postagens',post, this.token)
   }
 

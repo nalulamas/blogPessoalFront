@@ -5,7 +5,7 @@ import { Post } from '../model/Post';
 import { Theme } from '../model/Theme';
 import { User } from '../model/User';
 import { AuthService } from '../service/auth.service';
-import { PostagemService } from '../service/postagem.service';
+import { PostService } from '../service/postagem.service';
 import { ThemeService } from '../service/theme.service';
 
 @Component({
@@ -27,12 +27,15 @@ export class InicioComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private postagemService: PostagemService,
+    private postService: PostService,
     private themeService: ThemeService,
     private authService: AuthService,
     ) {}
 
   ngOnInit() {
+
+    window.scroll(0,0)
+
     if (environment.token == '') {
       alert('Seção expirada. Refaça o login.');
       this.route.navigate(['/enter']);
@@ -52,7 +55,7 @@ export class InicioComponent implements OnInit {
       })
     }
     getAllPosts(){
-      this.postagemService.getAllPosts().subscribe((resp: Post[])=>{
+      this.postService.getAllPosts().subscribe((resp: Post[])=>{
         this.postList = resp
       })
     }
@@ -70,7 +73,7 @@ export class InicioComponent implements OnInit {
       this.user.id = this.idUser
       this.post.creator = this.user
 
-      this.postagemService.postPostagem(this.post).subscribe((resp: Postagem)=>{
+      this.postService.postPost(this.post).subscribe((resp: Post)=>{
         this.post = resp
         alert('Postagem realizada com sucesso!')
         this.post = new Post()
