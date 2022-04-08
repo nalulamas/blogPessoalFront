@@ -24,3 +24,12 @@ color: #A36D89;
 .bg-rodape{
   background:  linear-gradient(#ffc0e0,#ffb0d7);
 }
+
+.btn-yes button{
+  align-self: flex-end;
+  font-size: 24px;
+  font-weight: 400;
+  padding:8px 16px;
+  background: #960052;
+  border-radius: 100px;
+}
