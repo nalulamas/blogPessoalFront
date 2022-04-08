@@ -1,7 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Kanit:ital@1&family=Open+Sans:ital,wght@0,800;1,300;1,500&family=Roboto+Mono:ital,wght@0,100;1,100&display=swap");
-
 #img-bg {
-  background-image: url("../../assets/enter.jpg");
+  background-image: url("../../assets/01.png");
   min-height: 695px;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,23 +7,29 @@
 }
 
 .ft-entrar {
-  font-family: "EB Garamond", serif;
-  font-family: "Kanit", sans-serif;
-  font-family: "Open Sans", sans-serif;
-  font-family: "Roboto Mono", monospace;
+  -webkit-text-stroke: 1px rgba(255, 0, 157, 0.5);
+  color: rgba(255, 255, 255, 0.815);
+  text-shadow:
+      0 0 10px rgb(255, 237, 251),
+      0 0 20px rgb(255, 162, 235),
+      0 0 30px rgb(252, 146, 229),
+      0 0 33px rgb(255, 94, 220),
+      0 0 35px rgb(255, 76, 216);
 }
 
-.bg-entrar-col{
-  background: rgba(255, 80, 211, 0.226);
-  border-radius: 20px;
-  }
+.bg-entrar-col {
+  background: rgba(177, 40, 140, 0.308);
+  border-radius: 50px;
+}
 
-textarea:focus, input:focus, select:focus {
+textarea:focus,
+input:focus,
+select:focus {
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;
-  box-shadow: 0 0 5px rgb(247, 0, 255);
+  box-shadow: 0 0 5px rgb(255, 76, 216);
   padding: 2px 0px 2px 2px;
   margin: 5px 1px 3px 0px;
-  border: 1px solid rgb(247, 0, 255);
+  border: 1px solid rgb(255, 76, 216);
 }

@@ -1,9 +1,6 @@
-#img-bg{
-    background-image: url('../../assets/cadastro.jpg');
-    min-height: 695px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bg-entrar-col {
+  background: rgba(177, 40, 140, 0.308);
+  border-radius: 50px;
 }
 
 textarea:focus, input:focus, select:focus {
@@ -14,4 +11,25 @@ textarea:focus, input:focus, select:focus {
   padding: 2px 0px 2px 2px;
   margin: 5px 1px 3px 0px;
   border: 1px solid rgb(247, 0, 255);
+}
+
+.ft-neon-h3{
+  font-weight: bold;
+  -webkit-text-stroke: 1px rgba(255, 0, 157, 0.5);
+  color: rgba(255, 255, 255, 0.815);
+  text-shadow:
+      0 0 10px rgb(255, 255, 255),
+      0 0 20px rgb(255, 255, 255),
+      0 0 30px rgb(255, 0, 157),
+}
+
+.ft-neon {
+  -webkit-text-stroke: 1px rgba(255, 0, 157, 0.5);
+  color: rgba(255, 255, 255, 0.815);
+  text-shadow:
+      0 0 10px rgb(255, 237, 251),
+      0 0 20px rgb(255, 162, 235),
+      0 0 30px rgb(252, 146, 229),
+      0 0 33px rgb(255, 94, 220),
+      0 0 35px rgb(255, 76, 216);
 }

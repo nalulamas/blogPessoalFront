@@ -35,17 +35,18 @@ export class UserEditComponent implements OnInit {
     this.confirmAnPassword = event.target.value;
   }
 
-  typeUser(event: any){
+  typeUser(event: any) {
     this.typeOfUser = event.target.value;
   }
 
   update() {
     this.user.type = this.typeOfUser;
+    console.log(this.user);
 
     if (this.user.password != this.confirmAnPassword) {
       alert('As senhas estão incorretas');
     } else {
-      this.authService.register(this.user).subscribe((resp: User) => {
+      this.authService.update(this.user).subscribe((resp: User) => {
         this.user = resp;
         this.router.navigate(['/inicio']);
         alert('Usuário atualizado com sucesso, faça o login novamente');
@@ -54,7 +55,7 @@ export class UserEditComponent implements OnInit {
         environment.picture = '';
         environment.id = 0;
 
-        this.router.navigate(['/enter'])
+        this.router.navigate(['/enter']);
       });
     }
   }
