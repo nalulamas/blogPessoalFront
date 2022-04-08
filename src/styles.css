@@ -10,9 +10,17 @@ html{
 }
 
 .text-pink{
-color: #FFA69E;
+color: #A36D89;
 }
 
-.bg-grey{
-  background-color: #7E8787;
+.bg-menu{
+  background-color: #ffc0e0;
+}
+
+.bg-pink{
+  background: linear-gradient(#F9F0F5,#ffc0e0);
+}
+
+.bg-rodape{
+  background:  linear-gradient(#ffc0e0,#ffb0d7);
 }
