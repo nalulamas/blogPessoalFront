@@ -33,3 +33,15 @@ select:focus {
   margin: 5px 1px 3px 0px;
   border: 1px solid rgb(255, 76, 216);
 }
+
+.btn-yes{
+  background-color: rgba(233, 57, 195, 0.315);
+  border-radius: 50px;
+}
+
+.txt-yes{
+  align-self: flex-end;
+  font-size: 20px;
+  font-weight: 400;
+  padding:8px 16px;
+}

@@ -3,7 +3,9 @@
   border-radius: 50px;
 }
 
-textarea:focus, input:focus, select:focus {
+textarea:focus,
+input:focus,
+select:focus {
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;
@@ -13,23 +15,28 @@ textarea:focus, input:focus, select:focus {
   border: 1px solid rgb(247, 0, 255);
 }
 
-.ft-neon-h3{
-  font-weight: bold;
-  -webkit-text-stroke: 1px rgba(255, 0, 157, 0.5);
-  color: rgba(255, 255, 255, 0.815);
-  text-shadow:
-      0 0 10px rgb(255, 255, 255),
-      0 0 20px rgb(255, 255, 255),
-      0 0 30px rgb(255, 0, 157),
+.ft-neon-h3 {
+  color: rgb(0, 0, 0);
 }
 
 .ft-neon {
   -webkit-text-stroke: 1px rgba(255, 0, 157, 0.5);
   color: rgba(255, 255, 255, 0.815);
-  text-shadow:
-      0 0 10px rgb(255, 237, 251),
-      0 0 20px rgb(255, 162, 235),
-      0 0 30px rgb(252, 146, 229),
-      0 0 33px rgb(255, 94, 220),
-      0 0 35px rgb(255, 76, 216);
+  text-shadow: 0 0 10px rgb(255, 237, 251), 0 0 20px rgb(255, 162, 235),
+    0 0 30px rgb(252, 146, 229), 0 0 33px rgb(255, 94, 220),
+    0 0 35px rgb(255, 76, 216);
+}
+
+.btn-yes {
+  background-color: rgba(233, 57, 195, 0.315);
+  border-radius: 50px;
+}
+
+.btn-no {
+  background-color: rgba(131, 102, 124, 0.315);
+  border-radius: 50px;
+}
+
+.btn-text {
+  font-size: 20;
 }

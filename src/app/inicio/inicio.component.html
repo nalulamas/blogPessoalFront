@@ -1,177 +1,3 @@
-<div class="container-fluid">
-  <div class="row bg-pink d-flex align-items-center">
-    <!--local de alterar a cor-->
-
-    <div class="col-md-6">
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-8 text-pink">
-          <h1 class="fs-54 ft-h1">Seja bem vinde!</h1>
-          <h5 class="fs-18">Escreva aqui seu post.</h5>
-        </div>
-      </div>
-
-      <div class="row d-flex justify-content-center mt-3 mb-5">
-        <div class="col-md-6">
-          <button
-            class="btn btn-light mr-2"
-            data-toggle="modal"
-            data-target="#newPost"
-          >
-            Nova postagem
-          </button>
-          <a class="btn btn-outline-light mr-2" href="#posts">Ver postagens</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6 d-flex justify-content-center">
-      <img
-        src="assets\01.png"
-        alt=""
-        width="590px"
-        height="690px"
-      />
-    </div>
-  </div>
-</div>
-
-<!--Nav and tabs-->
-
-<div class="container mb-5 mt-5" id="posts">
-  <nav>
-    <div
-      class="nav nav-tabs d-flex justify-content-center"
-      id="nav-allPosts-tab"
-      role="tablist"
-    >
-      <button
-        class="nav-link active text-secondary font-weight-bold"
-        id="nav-allPosts-tab"
-        data-toggle="tab"
-        data-target="#allPosts"
-        type="button"
-        role="tab"
-        aria-controls="nav-allPosts"
-        aria-selected="true"
-      >
-        Todas as postagens
-      </button>
-      <button
-        (click)="findByIdUser()"
-        class="nav-link text-secondary font-weight-bold"
-        id="nav-myPosts-tab"
-        data-toggle="tab"
-        data-target="#myPosts"
-        type="button"
-        role="tab"
-        aria-controls="nav-myPosts"
-        aria-selected="false"
-      >
-        Minhas postagens
-      </button>
-      <button
-        class="nav-link text-secondary font-weight-bold"
-        id="nav-themePosts-tab"
-        data-toggle="tab"
-        data-target="#themePosts"
-        type="button"
-        role="tab"
-        aria-controls="nav-themePosts"
-        aria-selected="false"
-      >
-        <div class="card-columns" *ngFor="let theme of themeList">
-          <div class="card text-center" *ngFor="let item of theme.post">
-            <div class="card-body">
-              <h5 class="card-title m-0">{{ item.title }}</h5>
-              <p class="card-text mt-3">{{ item.text }}</p>
-              <p class="card-text">
-                <small class="text-muted">
-                  {{ item.date | date: "dd/MM/yyyy" }} às
-                  {{ item.date | date: "HH:mm" }}
-                </small>
-              </p>
-
-              <a [routerLink]="['/post-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-              <a [routerLink]="['/post-delete', item.id]" class="text-danger" href="">Apagar</a>
-
-              <p class="card-text">
-                <small class="text-muted"> by: {{ item.creator.name }} </small>
-              </p>
-            </div>
-          </div>
-        </div>
-      </button>
-    </div>
-  </nav>
-
-  <!--Divs-->
-
-  <div class="tab-content mt-5" id="nav-tabContent">
-    <div
-      class="tab-pane fade show active"
-      id="allPosts"
-      role="tabpanel"
-      aria-labelledby="allPosts-tab"
-    >
-      <!--Card-->
-
-      <div class="card-columns">
-        <div class="card text-center" *ngFor="let item of postList">
-          <div class="card-body">
-            <h5 class="card-title m-0">{{ item.title }}</h5>
-            <small class="text-muted"
-              >Theme: {{ item.theme.description }}</small
-            >
-            <p class="card-text mt-3">{{ item.text }}</p>
-            <p class="card-text">
-              <small class="text-muted">
-                {{ item.date | date: "dd/MM/yyyy" }} às
-                {{ item.date | date: "HH:mm" }}
-              </small>
-            </p>
-
-            <p class="card-text">
-              <small class="text-muted"> by: {{ item.creator.name }} </small>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="tab-pane fade"
-      id="myPosts"
-      role="tabpanel"
-      aria-labelledby="nav-profile-tab"
-    >
-      <div class="card-columns">
-        <div class="card text-center" *ngFor="let item of user.post">
-          <div class="card-body">
-            <h5 class="card-title m-0">{{ item.title }}</h5>
-            <small class="text-muted"
-              >Theme: {{ item.theme.description }}</small
-            >
-            <p class="card-text mt-3">{{ item.text }}</p>
-            <p class="card-text">
-              <small class="text-muted">
-                {{ item.date | date: "dd/MM/yyyy" }} às
-                {{ item.date | date: "HH:mm" }}
-              </small>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="tab-pane fade"
-      id="themePosts"
-      role="tabpanel"
-      aria-labelledby="themePosts-tab"
-    >
-      Postagens por tema
-    </div>
-  </div>
-</div>
-
 <!-- Modal -->
 <div
   class="modal fade"
@@ -181,7 +7,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content md text-white">
       <div class="modal-header">
         <h5 class="modal-title" id="newPostLabel">Nova postagem</h5>
         <button
@@ -193,7 +19,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-white">
         <div class="form-group">
           <label for="title">Título</label>
           <input
@@ -235,12 +61,183 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <button type="button" class="btn btn-no" data-dismiss="modal">
           Cancelar
         </button>
-        <button type="button" class="btn btn-success" (click)="publicar()">
+        <button type="button" class="btn btn-yes" (click)="publicar()">
           Publicar
         </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/modal-->
+
+<div class="container-fluid">
+  <div class="row bg-gray d-flex align-items-center">
+    <div class="col-md-6 d-flex justify-content-center pt-3">
+      <img
+        class="d-flex justify-content-center mt-3"
+        src="assets\inicio.png"
+        alt=""
+      />
+    </div>
+
+    <div class="col-md-6">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 text-pink align-items-center mt-2">
+          <p class="fs-54 ft-h1">Seja bem vinde!</p>
+          <!--Postagens-->
+          <div class="container-fluid">
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-6 d-flex justify-content-center pt-3">
+                <button
+                  class="btn btn-light mr-2"
+                  data-toggle="modal"
+                  data-target="#newPost"
+                >
+                  Nova postagem
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Nav postagens-->
+      <div class="col-md-12 container mb-5 mt-5" id="postagens">
+        <div>
+          <div
+            class="nav nav-tabs d-flex justify-content-center"
+            id="nav-tab"
+            role="tablist"
+          >
+            <a
+              class="nav-item nav-link active text-secondary font-weight-bold"
+              id="nav-allPosts-tab"
+              data-toggle="tab"
+              href="#allPosts"
+              role="tab"
+              aria-controls="nav-allPosts"
+              aria-selected="true"
+              >Todas as postagens</a
+            >
+            <a
+              (click)="findByIdUser()"
+              class="nav-item nav-link text-secondary font-weight-bold"
+              id="nav-myPosts-tab"
+              data-toggle="tab"
+              href="#myPosts"
+              role="tab"
+              aria-controls="nav-myPosts"
+              aria-selected="false"
+              >Minhas postagens</a
+            >
+            <a
+              class="nav-item nav-link text-secondary font-weight-bold"
+              id="nav-themePosts-tab"
+              data-toggle="tab"
+              href="#themePosts"
+              role="tab"
+              aria-controls="nav-themePosts"
+              aria-selected="false"
+              >Postagens por tema</a
+            >
+
+            <div class="card-columns" *ngFor="let theme of themeList">
+              <div class="card text-center" *ngFor="let item of theme.post">
+                <div class="card-body">
+                  <h5 class="card-title m-0">{{ item.title }}</h5>
+                  <p class="card-text mt-3">{{ item.text }}</p>
+                  <p class="card-text">
+                    <small class="text-muted">
+                      {{ item.date | date: "dd/MM/yyyy" }} às
+                      {{ item.date | date: "HH:mm" }}
+                    </small>
+                  </p>
+
+                  <a
+                    [routerLink]="['/post-edit', item.id]"
+                    class="text-info mr-3"
+                    href=""
+                    >Editar</a
+                  >
+                  <a
+                    [routerLink]="['/post-delete', item.id]"
+                    class="text-danger"
+                    href=""
+                    >Apagar</a
+                  >
+
+                  <p class="card-text">
+                    <small class="text-muted">
+                      by: {{ item.creator.name }}
+                    </small>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--Card-->
+
+            <div class="card-columns">
+              <div class="card text-center" *ngFor="let item of postList">
+                <div class="card-body">
+                  <h5 class="card-title m-0">{{ item.title }}</h5>
+                  <small class="text-muted"
+                    >Theme: {{ item.theme.description }}</small
+                  >
+                  <p class="card-text mt-3">{{ item.text }}</p>
+                  <p class="card-text">
+                    <small class="text-muted">
+                      {{ item.date | date: "dd/MM/yyyy" }} às
+                      {{ item.date | date: "HH:mm" }}
+                    </small>
+                  </p>
+
+                  <p class="card-text">
+                    <small class="text-muted">
+                      by: {{ item.creator.name }}
+                    </small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="myPosts"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            <div class="card-columns">
+              <div class="card text-center" *ngFor="let item of user.post">
+                <div class="card-body">
+                  <h5 class="card-title m-0">{{ item.title }}</h5>
+                  <small class="text-muted"
+                    >Theme: {{ item.theme.description }}</small
+                  >
+                  <p class="card-text mt-3">{{ item.text }}</p>
+                  <p class="card-text">
+                    <small class="text-muted">
+                      {{ item.date | date: "dd/MM/yyyy" }} às
+                      {{ item.date | date: "HH:mm" }}
+                    </small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="themePosts"
+            role="tabpanel"
+            aria-labelledby="themePosts-tab"
+          >
+            Postagens por tema
+          </div>
+        </div>
       </div>
     </div>
   </div>

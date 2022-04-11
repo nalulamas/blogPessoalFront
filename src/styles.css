@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Great+Vibes&family=Kanit:ital@1&family=Open+Sans:ital,wght@0,800;1,300;1,500&family=Roboto+Mono:ital,wght@0,100;1,100&display=swap");
 html{
   scroll-behavior: smooth;
 }
@@ -10,11 +11,15 @@ html{
 }
 
 .text-pink{
-color: #941757;
+color: #dda0bf;
+}
+
+.text-white{
+  color: #fcf4f8;
 }
 
 .bg-menu{
-  background-color: rgba(245, 236, 240, 0.829)
+  background-color: #5c5b5b;
 }
 
 .bg-pink{
@@ -22,14 +27,5 @@ color: #941757;
 }
 
 .bg-rodape{
-  background:  linear-gradient(#ffc0e0,#ffb0d7);
-}
-
-.btn-yes button{
-  align-self: flex-end;
-  font-size: 24px;
-  font-weight: 400;
-  padding:8px 16px;
-  background: #960052;
-  border-radius: 100px;
+  background:  linear-gradient(#181818,#000000);
 }
