@@ -7,12 +7,12 @@
 }
 
 .ft-entrar {
-  -webkit-text-stroke: 1px rgba(255, 0, 157, 0.5);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
   color: rgba(255, 255, 255, 0.815);
   text-shadow:
       0 0 10px rgb(255, 237, 251),
-      0 0 20px rgb(255, 162, 235),
-      0 0 30px rgb(252, 146, 229),
+      0 0 20px rgb(255, 184, 238),
+      0 0 30px rgb(253, 170, 235),
       0 0 33px rgb(255, 94, 220),
       0 0 35px rgb(255, 76, 216);
 }

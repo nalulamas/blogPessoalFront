@@ -40,6 +40,7 @@ export class InicioComponent implements OnInit {
       alert('Seção expirada. Refaça o login.');
       this.route.navigate(['/enter']);
     }
+    this.authService.refreshToken()
     this.getAllThemes()
     this.getAllPosts()
   }
@@ -73,6 +74,7 @@ export class InicioComponent implements OnInit {
       this.user.id = this.idUser
       this.post.creator = this.user
 
+      console.log(this.post)
       this.postService.postPost(this.post).subscribe((resp: Post)=>{
         this.post = resp
         alert('Postagem realizada com sucesso!')

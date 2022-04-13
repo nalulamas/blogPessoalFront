@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Great+Vibes&family=Kanit:ital@1&family=Open+Sans:ital,wght@0,800;1,300;1,500&family=Roboto+Mono:ital,wght@0,100;1,100&display=swap");
-html{
+
+html {
   scroll-behavior: smooth;
 }
 .fs-54 {
@@ -10,22 +11,31 @@ html{
   font-size: 18pt;
 }
 
-.text-pink{
-color: #dda0bf;
+.ft-os {
+  font-size: 30px;
+  font-family: "EB Garamond", serif;
+  font-family: "Great Vibes", cursive;
+  font-family: "Kanit", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto Mono", monospace;
 }
 
-.text-white{
+.text-pink {
+  color: #dda0bf;
+}
+
+.text-white {
   color: #fcf4f8;
 }
 
-.bg-menu{
+.bg-menu {
   background-color: #5c5b5b;
 }
 
-.bg-pink{
-  background: linear-gradient(#F9F0F5,#ffc0e0);
+.bg-pink {
+  background: linear-gradient(#f9f0f5, #ffc0e0);
 }
 
-.bg-rodape{
-  background:  linear-gradient(#181818,#000000);
+.bg-rodape {
+  background: linear-gradient(#181818, #000000);
 }

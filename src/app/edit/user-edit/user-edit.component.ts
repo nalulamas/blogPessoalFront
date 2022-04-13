@@ -48,7 +48,6 @@ export class UserEditComponent implements OnInit {
     } else {
       this.authService.update(this.user).subscribe((resp: User) => {
         this.user = resp;
-        this.router.navigate(['/inicio']);
         alert('Usuário atualizado com sucesso, faça o login novamente');
         environment.token = '';
         environment.name = '';

@@ -1,0 +1,43 @@
+.fs-54 {
+  font-size: 40pt;
+}
+
+.fs-18 {
+  font-size: 18pt;
+}
+.bg-theme{
+  background:#f88fe0;
+}
+
+
+textarea:focus,
+input:focus,
+select:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  box-shadow: 0 0 5px rgb(247, 0, 255);
+  padding: 2px 0px 2px 2px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgb(247, 0, 255);
+}
+.ft-h1 {
+  font-family: "EB Garamond", serif;
+  font-family: "Great Vibes", cursive;
+  font-family: "Kanit", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+}
+
+.md {
+  background-color: #dda0bf8c;
+}
+
+.btn-yes {
+  background-color: rgba(255, 0, 200, 0.514);
+}
+
+.btn-text {
+  font-size: 20;
+}
